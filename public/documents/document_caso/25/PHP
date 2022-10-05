@@ -1,0 +1,23 @@
+<?php
+
+function fizzBuzz($num)
+{
+    // Write your code here
+    if ($num % 15 == 0) {
+        print "FizzBuzz".PHP_EOL;
+    } elseif ($num % 5 == 0) {
+        print "Buzz".PHP_EOL;
+    } else {
+        if ($num % 3 == 0) {
+            print "Fizz".PHP_EOL;
+        } else {
+            print $num.PHP_EOL;
+        }
+    }
+}
+
+$n= fgets(STDIN);
+
+for ($i = 1; $i <= $n; $i++) {
+    fizzBuzz($i);
+}

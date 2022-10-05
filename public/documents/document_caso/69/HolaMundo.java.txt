@@ -1,0 +1,9 @@
+Class HolaMundo {
+
+public static void (String a[]{
+
+System.out.println("Hola Mundo!");
+
+}
+
+}
