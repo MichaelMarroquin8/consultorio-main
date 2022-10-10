@@ -97,6 +97,41 @@ if (isset($_SESSION["usu_id"])) {
                               <input type="text" class="form-control" id="usu_correo" name="usu_correo" readonly>
                             </fieldset>
                           </div>
+
+                          <div class="col-lg-12">
+                            <fieldset class="form-group">
+                              <label class="form-label semibold" for="">Datos de contacto</label>
+                            </fieldset>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <fieldset class="form-group">
+                              <label class="form-label semibold" for="emp_cnom">Nombre</label>
+                              <input type="text" class="form-control" id="emp_cnom" name="emp_cnom" readonly>
+                            </fieldset>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <fieldset class="form-group">
+                              <label class="form-label semibold" for="emp_ccar">Cargo</label>
+                              <input type="text" class="form-control" id="emp_ccar" name="emp_ccar" readonly>
+                            </fieldset>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <fieldset class="form-group">
+                              <label class="form-label semibold" for="emp_ctel">Telefono</label>
+                              <input type="text" class="form-control" id="emp_ctel" name="emp_ctel" readonly>
+                            </fieldset>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <fieldset class="form-group">
+                              <label class="form-label semibold" for="emp_cemail">Email</label>
+                              <input type="text" class="form-control" id="emp_cemail" name="emp_cemail" readonly>
+                            </fieldset>
+                          </div>
+                          
                         </div>
                       </div>
                     </div>

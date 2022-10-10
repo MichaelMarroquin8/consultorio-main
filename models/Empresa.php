@@ -3,11 +3,11 @@ class Empresa extends Conectar
 {
 
     //Modelo empresa para crear las empresas
-    public function insert_empresa($usu_id, $emp_nit, $emp_r_social, $emp_n_trab, $emp_re_legal, $emp_acti_eco, $emp_nriesgo, $emp_arl, $emp_tel, $emp_dir)
+    public function insert_empresa($usu_id, $emp_nit, $emp_r_social, $emp_n_trab, $emp_re_legal, $emp_acti_eco, $emp_nriesgo, $emp_arl, $emp_tel, $emp_dir, $emp_cnom, $emp_ccar, $emp_ctel, $emp_cemail)
     {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "INSERT INTO tm_empresa (emp_id, usu_id, emp_nit, emp_r_social, emp_n_trab, emp_re_legal, emp_acti_eco, emp_nriesgo, emp_arl, emp_tel, emp_dir, fech_crea, fech_modi, fech_elim, est) VALUES (NULL, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, now(), NULL, NULL, 1);";
+        $sql = "INSERT INTO tm_empresa (emp_id, usu_id, emp_nit, emp_r_social, emp_n_trab, emp_re_legal, emp_acti_eco, emp_nriesgo, emp_arl, emp_tel, emp_dir, emp_cnom, emp_ccar, emp_ctel, emp_cemail, fech_crea, fech_modi, fech_elim, est) VALUES (NULL, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), NULL, NULL, 1);";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $usu_id);
         $sql->bindValue(2, $emp_nit);
@@ -19,12 +19,16 @@ class Empresa extends Conectar
         $sql->bindValue(8, $emp_arl);
         $sql->bindValue(9, $emp_tel);
         $sql->bindValue(10, $emp_dir);
+        $sql->bindValue(11, $emp_cnom);
+        $sql->bindValue(12, $emp_ccar);
+        $sql->bindValue(13, $emp_ctel);
+        $sql->bindValue(14, $emp_cemail);
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }
 
     //Modelo empresa para actualizar las empresas
-    public function update_empresa($emp_id, $usu_id, $emp_nit, $emp_r_social, $emp_n_trab, $emp_re_legal, $emp_acti_eco, $emp_nriesgo, $emp_arl, $emp_tel)
+    public function update_empresa($emp_id, $usu_id, $emp_nit, $emp_r_social, $emp_n_trab, $emp_re_legal, $emp_acti_eco, $emp_nriesgo, $emp_arl, $emp_tel, $emp_dir)
     {
         $conectar = parent::conexion();
         parent::set_names();
@@ -37,7 +41,8 @@ class Empresa extends Conectar
                 emp_acti_eco = ?,
                 emp_nriesgo = ?,
                 emp_arl = ?,
-                emp_tel = ?
+                emp_tel = ?,
+                emp_dir = ?
                 WHERE
                 emp_id = ?";
         $sql = $conectar->prepare($sql);
@@ -50,7 +55,8 @@ class Empresa extends Conectar
         $sql->bindValue(7, $emp_nriesgo);
         $sql->bindValue(8, $emp_arl);
         $sql->bindValue(9, $emp_tel);
-        $sql->bindValue(10, $emp_id);
+        $sql->bindValue(10, $emp_dir);
+        $sql->bindValue(11, $emp_id);
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }
@@ -122,6 +128,10 @@ class Empresa extends Conectar
         tm_empresa.emp_arl,
         tm_empresa.emp_tel,
         tm_empresa.emp_dir,
+        tm_empresa.emp_cnom,
+        tm_empresa.emp_ccar,
+        tm_empresa.emp_ctel,
+        tm_empresa.emp_cemail,
         tm_empresa.fech_crea,
         tm_usuario.usu_nom,
         tm_usuario.usu_ape,

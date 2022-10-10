@@ -2,6 +2,7 @@
     require_once("../config/conexion.php");
     require_once("../models/Usuario.php");
     $usuario = new Usuario();
+
     require_once("../models/Email.php");
     $email = new Email();
 
@@ -18,11 +19,10 @@
         break;
 
         case "emailregistro":
-                $email->crear_usuario($_POST["usu_correo"],$_POST["usu_nom"]);
-            break;
+            $email->crear_usuario($_POST["usu_correo"]);
+        break;
 
         /* Controller para actualizar contraseña */
-        
         case "listar":
             $datos=$usuario->get_usuario();
             $data= Array();

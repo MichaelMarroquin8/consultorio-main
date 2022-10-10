@@ -5,8 +5,8 @@ include("class.smtp.php");
 
 /* llamada de las clases necesarias que se usaran en el envio del mail */
 require_once("../config/conexion.php");
-require_once("../Models/Ticket.php");
-require_once("../Models/Usuario.php");
+require_once("../models/Ticket.php");
+require_once("../models/Usuario.php");
 
 class Email extends PHPMailer{
 
@@ -159,7 +159,7 @@ class Email extends PHPMailer{
         return $this->Send();
     }
 
-    public function crear_usuario($usu_correo,$usu_nombre){
+    public function crear_usuario($usu_correo){
 
         //IGual//
         $this->IsSMTP();
@@ -177,7 +177,6 @@ class Email extends PHPMailer{
         $this->Subject = "Bienvenido";
         //Igual//
         $cuerpo = file_get_contents('../public/email/NuevoUsuario.html'); /* Ruta del template en formato HTML */
-        $cuerpo = str_replace("lblNomUsu", $usu_nombre, $cuerpo);
         $this->Body = $cuerpo;
         $this->AltBody = strip_tags("Bienvenido al consultorio de riesgos laborales");
         return $this->Send();

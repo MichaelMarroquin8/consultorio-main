@@ -13,10 +13,14 @@ $documento = new Documento();
 switch ($_GET["op"]) {
         /* Controller para crear Empresas */
     case "guardaryeditar":
-            $empresa->insert_empresa($_POST["usu_id"], $_POST["emp_nit"], $_POST["emp_r_social"], $_POST["emp_n_trab"], $_POST["emp_re_legal"], $_POST["emp_acti_eco"], $_POST["emp_nriesgo"], $_POST["emp_arl"], $_POST["emp_tel"], $_POST["emp_dir"]);
-        break;
+        if(empty($_POST["emp_id"])){     
+            $empresa->insert_empresa($_POST["usu_id"],$_POST["emp_nit"],$_POST["emp_r_social"],$_POST["emp_n_trab"],$_POST["emp_re_legal"],$_POST["emp_acti_eco"],$_POST["emp_nriesgo"],$_POST["emp_arl"],$_POST["emp_tel"],$_POST["emp_dir"],$_POST["emp_cnom"],$_POST["emp_ccar"],$_POST["emp_ctel"],$_POST["emp_cemail"]);
+        }else{
+            $empresa->update_empresa($_POST["emp_id"],$_POST["usu_id"],$_POST["emp_nit"],$_POST["emp_r_social"],$_POST["emp_n_trab"],$_POST["emp_re_legal"],$_POST["emp_acti_eco"],$_POST["emp_nriesgo"],$_POST["emp_arl"],$_POST["emp_tel"],$_POST["emp_dir"]);
+        }
+    break;
 
-        /* Controller para listar Empresas */
+    /* Controller para listar Empresas */
     case "listar":
         $datos = $empresa->get_empresa();
         $data = array();
@@ -42,6 +46,7 @@ switch ($_GET["op"]) {
             $sub_array[] = $row["emp_dir"];
 
             $sub_array[] = '<button type="button" onClick="ver(' . $row["emp_id"] . ');"  id="' . $row["emp_id"] . '" class="btn btn-inline btn-primary btn-sm ladda-button"><i class="fa fa-eye"></i></button>';
+            $sub_array[] = '<button type="button" onClick="editar('.$row["emp_id"].');"  id="'.$row["emp_id"].'" class="btn btn-inline btn-warning btn-sm ladda-button"><i class="fa fa-edit"></i></button>';
             $sub_array[] = '<button type="button" onClick="eliminar(' . $row["emp_id"] . ');"  id="' . $row["emp_id"] . '" class="btn btn-inline btn-danger btn-sm ladda-button"><i class="fa fa-trash"></i></button>';
             $data[] = $sub_array;
         }
@@ -111,6 +116,11 @@ switch ($_GET["op"]) {
                 $output["emp_nriesgo"] = $row["emp_nriesgo"];
                 $output["emp_arl"] = $row["emp_arl"];
                 $output["emp_tel"] = $row["emp_tel"];
+                $output["emp_dir"] = $row["emp_dir"];
+                $output["emp_cnom"] = $row["emp_cnom"];
+                $output["emp_ccar"] = $row["emp_ccar"];
+                $output["emp_ctel"] = $row["emp_ctel"];
+                $output["emp_cemail"] = $row["emp_cemail"];
                 $output["usu_correo"] = $row["usu_correo"];
                 $output["usu_nom"] = $row["usu_nom"];
                 $output["usu_ape"] = $row["usu_ape"];
@@ -119,7 +129,6 @@ switch ($_GET["op"]) {
             echo json_encode($output);
         }
         break;
-
 
     
     case "insertdetalle":

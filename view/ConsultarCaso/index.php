@@ -5,8 +5,7 @@ if (isset($_SESSION["usu_id"])) {
 	<!DOCTYPE html>
 	<html>
 	<?php require_once("../MainHead/head.php"); ?>
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-	<title>CRL-SENA</>::Mis Casos</title>
+	<title>CRL-SENA</>::Nuevo caso</title>
 	</head>
 
 	<body>
@@ -20,40 +19,79 @@ if (isset($_SESSION["usu_id"])) {
 				</header>
 				<div class="content-wrapper container">
 					<div class="page-heading">
-						<h3>Mis Casos</h3>
+						<h3>Nuevo Caso</h3>
 					</div>
 					<div class="page-content">
 						<section class="row">
-							<div class="col-12">
+							<div class="mb-3">
 								<div class="row">
-									<section class="section">
-										<div class="card">
-											<div class="card-header">
-												Listado de casos
-											</div>
+									<div class="card">
+										<div class="card-header">
+											<h4 class="card-title">Ingrese informacion de su caso</h4>
+										</div>
+										<div class="card-content">
 											<div class="card-body">
-												<table class="table" id="ticket_data">
-													<thead>
-														<tr>
-															<th style="width: 5%;">Nro.Ticket</th>
-															<th class="d-none d-sm-table-cell" style="width: 10%;">empresa</th>
-															<th style="width: 15%;">Categoria</th>
-															<th class="d-none d-sm-table-cell" style="width: 40%;">Titulo</th>
-															<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
-															<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Creación</th>
-															<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Asignación</th>
-															<th class="d-none d-sm-table-cell" style="width: 10%;">Soporte</th>
-															<th class="text-center" style="width: 5%;"></th>
-														</tr>
-													</thead>
-													<tbody>
+												<form method="post" id="ticket_form">
+													<div class="row">
 
-													</tbody>
-												</table>
+														<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
+
+														<div class="col-lg-6">
+															<fieldset class="form-group">
+																<label class="form-label semibold" for="exampleInput">Empresa</label>
+																<select id="emp_id" name="emp_id" class="form-control" data-placeholder="Seleccionar">
+																</select>
+															</fieldset>
+														</div>
+
+														<div class="col-lg-6">
+															<fieldset class="form-group">
+																<label class="form-label semibold" for="tick_titulo">Titulo</label>
+																<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Titulo">
+															</fieldset>
+														</div>
+
+														<div class="col-lg-4">
+															<fieldset class="form-group">
+																<label class="form-label semibold" for="exampleInput">Categoria</label>
+																<select id="cat_id" name="cat_id" class="form-control" data-placeholder="Seleccionar">
+
+																</select>
+															</fieldset>
+														</div>
+
+														<div class="col-lg-4">
+															<fieldset class="form-group">
+																<label class="form-label semibold" for="exampleInput">SubCategoria</label>
+																<select id="cats_id" name="cats_id" class="form-control" data-placeholder="Seleccionar">
+																	<option label="Seleccionar"></option>
+																</select>
+															</fieldset>
+														</div>
+
+														<div class="col-lg-4">
+															<fieldset class="form-group">
+																<label class="form-label semibold" for="exampleInput">Documentos Adicionales</label>
+																<input type="file" name="fileElem" id="fileElem" class="form-control" multiple>
+															</fieldset>
+														</div>
+
+														<div class="col-lg-12">
+															<fieldset class="form-group">
+																<label class="form-label semibold" for="tick_descrip">Descripci贸n</label>
+																<div class="summernote-theme-1">
+																	<textarea id="tick_descrip" name="tick_descrip" class="summernote" name="name"></textarea>
+																</div>
+															</fieldset>
+														</div>
+														<div class="col-lg-12">
+															<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button>
+														</div>
+													</div>
+												</form>
 											</div>
 										</div>
-
-									</section>
+									</div>
 								</div>
 							</div>
 						</section>
@@ -61,10 +99,9 @@ if (isset($_SESSION["usu_id"])) {
 				</div>
 			</div>
 		</div>
-		<?php require_once("modalasignar.php");?>
 		<?php require_once("../MainJs/js.php"); ?>
 
-		<script type="text/javascript" src="consultarcaso.js"></script>
+		<script type="text/javascript" src="nuevocaso.js"></script>
 	</body>
 
 	</html>

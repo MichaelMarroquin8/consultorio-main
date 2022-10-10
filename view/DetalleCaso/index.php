@@ -61,7 +61,7 @@ if (isset($_SESSION["usu_id"])) {
                           <div class="col-lg-12">
                             <fieldset class="form-group">
                               <label class="form-label semibold" for="tick_titulo">Documentos Adicionales</label>
-                              <table id="documentos_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                              <table id="documentos_data" class="table">
                                 <thead>
                                   <tr>
                                     <th style="width: 90%;">Nombre</th>

@@ -164,6 +164,10 @@ function listardetalle(emp_id) {
       $("#emp_arl").val(data.emp_arl);
       $("#emp_tel").val(data.emp_tel);
       $("#usu_correo").val(data.usu_correo);
+      $("#emp_cnom").val(data.emp_cnom);
+      $("#emp_ccar").val(data.emp_ccar);
+      $("#emp_ctel").val(data.emp_ctel);
+      $("#emp_cemail").val(data.emp_cemail);
     }
   );
 }

@@ -113,7 +113,7 @@ if ($_SESSION["rols_id"] == 3) {
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="..\Documentos\" class='submenu-link'>Mis Empresas</a>
+                                    <a href="..\Mempresas\" class='submenu-link'>Mis Empresas</a>
                                 </li>
 
                             </ul>
@@ -304,7 +304,7 @@ if ($_SESSION["rols_id"] == 3) {
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="..\Documentos\" class='submenu-link'>Mis Empresas</a>
+                                    <a href="..\Mempresas\" class='submenu-link'>Mis Empresas</a>
                                 </li>
 
                             </ul>
@@ -329,6 +329,72 @@ if ($_SESSION["rols_id"] == 3) {
 
                                 <li class="submenu-item  ">
                                     <a href="..\MntSubCategoria\" class='submenu-link'>Mtn Subcategoria</a>
+                                </li>
+                                
+                                <li class="submenu-item  has-sub">
+                                    <a href="#" class='submenu-link'>Planificar</a>
+                                    <ul class="subsubmenu ">
+
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnPDesignacion\"><span class="lbl">Designación de responsabilidades.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnPCapacitacionSeguridad\"><span class="lbl">Capacitación en seguridad y salud en el trabajo.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnPEvaluacionInicial\"><span class="lbl">Evaluación inicial.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnPPlanAnual\"><span class="lbl">Plan anual de trabajo.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnPPerfilSociodemografico\"><span class="lbl">Perfil sociodemografico.</span></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="submenu-item  has-sub">
+                                    <a href="#" class='submenu-link'>Hacer</a>
+                                    <ul class="subsubmenu ">
+
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnHIdentificación\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnHMedidas\"><span class="lbl">Medidas de prevención y control.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnHEvaluaciones\"><span class="lbl">Evaluaciones médicas.</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="submenu-item  has-sub">
+                                    <a href="#" class='submenu-link'>Verificar</a>
+                                    <ul class="subsubmenu ">
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnVInvestigación\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnVAuditoria\"><span class="lbl">Auditoria</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnVSeguimiento\"><span class="lbl">Seguimiento de indicadores</span></a>
+                                        </li>
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnVRevicion\"><span class="lbl">Revisión por la dirección</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="submenu-item  has-sub">
+                                    <a href="#" class='submenu-link'>Actuar</a>
+                                    <ul class="subsubmenu ">
+                                        <li class="subsubmenu-item  ">
+                                            <a href="..\mtnAAcciones\"><span class="lbl">Acciones de mejoramiento correctivas o preventivas.</span></a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

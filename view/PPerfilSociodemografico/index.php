@@ -2,6 +2,25 @@
 require_once("../../config/conexion.php");
 if (isset($_SESSION["usu_id"])) {
 ?>
+<?php
+	/////////////ENLISTAR LOS FICHEROS EXISTENTES///////////////////////////////////////////////
+	$listar = null;
+	$directorio = opendir("../../public/documents/documentos/PPerfilSociodemografico/");
+
+	while ($elemento = readdir($directorio)) {
+		if ($elemento != '.' && $elemento != '..') {
+			if (is_dir("../../public/documents/documentos/" . $elemento)) {
+				$listar .= "<a class=' col-md-6 btn btn-primary block' href='../../public/documents/documentos/PPerfilSociodemografico/$elemento' target='_blank'> 
+      $elemento/</a>
+      <br><br>";
+			} else {
+				$listar .= "<a class=' col-md-6 btn btn-primary block' href='../../public/documents/documentos/PPerfilSociodemografico/$elemento' target='_blank'> 
+      $elemento</a>
+      <br><br>";
+			}
+		}
+	}
+	?>
 	<!DOCTYPE html>
 	<html>
 	<?php require_once("../MainHead/head.php"); ?>
@@ -46,10 +65,9 @@ if (isset($_SESSION["usu_id"])) {
 												<p class="card-text">
 													A travez de aqui podras descargar los documentos los cuales debes diligenciar para completar este modulo.
 												</p>
-												<p class="card-text">
-													Para proceder con la descarga oprime el boton DESCARGAR.
-												</p>
-												<a href="../../public/documents/documentos/" class="btn btn-primary block" download>DESCARGAR</a>
+												<?php
+												echo $listar;
+												?>
 											</div>
 										</div>
 									</div>
@@ -67,7 +85,7 @@ if (isset($_SESSION["usu_id"])) {
 												<p class="card-text">
 													Video de explicación para subida de documentos para cada empresa.
 												</p>
-												<a href="../../view/Documentos/" class="btn btn-primary block">DESCARGAR</a>
+												<a href="../../view/Mempresas/" class="btn btn-primary block">DESCARGAR</a>
 											</div>
 										</div>
 									</div>
@@ -81,7 +99,6 @@ if (isset($_SESSION["usu_id"])) {
 
 			<?php require_once("../MainJs/js.php"); ?>
 
-			<script type="text/javascript" src="documentos.js"></script>
 	</body>
 
 	</html>

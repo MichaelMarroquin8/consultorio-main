@@ -15,6 +15,7 @@
         //Modelo para visualizar los documentos subidos
         public function get_documento_x_ticket($tick_id){
             $conectar= parent::conexion();
+            
             /* consulta sql */
             $sql="call sp_l_documento_01(?)";
             $sql = $conectar->prepare($sql);

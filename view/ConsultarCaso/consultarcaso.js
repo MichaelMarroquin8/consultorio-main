@@ -179,9 +179,9 @@ $(document).ready(function () {
 function ver(tick_id) {
   window.open(
     //localhost
-    // "http://localhost/Consultorio-master/view/DetalleCaso/?ID=" + tick_id + ""
+    "http://localhost/Consultorio-master/view/DetalleCaso/?ID=" + tick_id + ""
     //producción
-    "http://consultorio.senacgts.org/view/DetalleCaso/?ID=" + tick_id + ""
+    // "http://consultorio.senacgts.org/view/DetalleCaso/?ID=" + tick_id + ""
   );
 }
 

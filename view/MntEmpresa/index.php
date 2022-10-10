@@ -51,6 +51,7 @@ if (isset($_SESSION["usu_id"])) {
 															<th class="text-center" style="width: 5%;">Direccion</th>
 															<th class="text-center" style="width: 5%;"></th>
 															<th class="text-center" style="width: 5%;"></th>
+															<th class="text-center" style="width: 5%;"></th>
 														</tr>
 													</thead>
 													<tbody>

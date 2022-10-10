@@ -1,4 +1,4 @@
-<div id="modalmantenimiento" class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div id="modalmantenimiento" class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -62,10 +62,33 @@
                         <label class="form-label" for="emp_tel">Telefono</label>
                         <input type="number" class="form-control" id="emp_tel" name="emp_tel" placeholder="Telefono" required>
                     </div>
+
                     
                     <div class="form-group">
                         <label class="form-label" for="emp_dir">Dirección</label>
                         <input type="text" class="form-control" id="emp_dir" name="emp_dir" placeholder="Telefono" required>
+                    </div>
+                    
+                    <label class="form-label" for="">Datos de contacto</label>
+
+                    <div class="form-group">
+                        <label class="form-label" for="emp_cnom">Nombre</label>
+                        <input type="text" class="form-control" id="emp_cnom" name="emp_cnom" placeholder="Telefono" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="emp_ccar">Cargo</label>
+                        <input type="text" class="form-control" id="emp_ccar" name="emp_ccar" placeholder="Telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="emp_ctel">Telefono</label>
+                        <input type="text" class="form-control" id="emp_ctel" name="emp_ctel" placeholder="Telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="emp_cemail">Email</label>
+                        <input type="text" class="form-control" id="emp_cemail" name="emp_cemail" placeholder="Telefono" required>
                     </div>
 
                 <div class="modal-footer">

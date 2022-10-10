@@ -19,6 +19,7 @@ function guardaryeditar(e){
             
             $.post("../../controller/usuario.php?op=emailregistro", {usu_correo : $("#usu_correo").val()}, function (datos) {
             });
+            
             console.log(datos);
             $('#usuario_form')[0].reset();
             $("#modalmantenimiento").modal('hide');
@@ -114,7 +115,7 @@ function editar(usu_id){
         $('#rols_id').val(data.rols_id).trigger('change');
     }); 
 
-    $('#modalmantenimiento2').modal('show');
+    $('#modalmantenimiento').modal('show');
 }
 
 function eliminar(usu_id){
@@ -159,7 +160,7 @@ $(document).on("click","#btnnuevo", function(){
             $('#rols_id').html(data);
         });
     });
-
+    $('#usu_id').val('');
     $('#mdltitulo').html('Nuevo Registro');
     $('#usuario_form')[0].reset();
     $('#modalmantenimiento').modal('show');
