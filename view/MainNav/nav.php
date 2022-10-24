@@ -74,7 +74,7 @@ if ($_SESSION["rols_id"] == 3) {
                                     <ul class="subsubmenu ">
 
                                         <li class="subsubmenu-item  ">
-                                            <a href="..\HIdentificación\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
+                                            <a href="..\HIdentificacion\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
                                         </li>
                                         <li class="subsubmenu-item  ">
                                             <a href="..\HMedidas\"><span class="lbl">Medidas de prevención y control.</span></a>
@@ -89,7 +89,7 @@ if ($_SESSION["rols_id"] == 3) {
                                     <a href="#" class='submenu-link'>Verificar</a>
                                     <ul class="subsubmenu ">
                                         <li class="subsubmenu-item  ">
-                                            <a href="..\VInvestigación\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
+                                            <a href="..\VInvestigacion\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
                                         </li>
                                         <li class="subsubmenu-item  ">
                                             <a href="..\VAuditoria\"><span class="lbl">Auditoria</span></a>
@@ -265,7 +265,7 @@ if ($_SESSION["rols_id"] == 3) {
                                     <ul class="subsubmenu ">
 
                                         <li class="subsubmenu-item  ">
-                                            <a href="..\HIdentificación\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
+                                            <a href="..\HIdentificacion\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
                                         </li>
                                         <li class="subsubmenu-item  ">
                                             <a href="..\HMedidas\"><span class="lbl">Medidas de prevención y control.</span></a>
@@ -280,7 +280,7 @@ if ($_SESSION["rols_id"] == 3) {
                                     <a href="#" class='submenu-link'>Verificar</a>
                                     <ul class="subsubmenu ">
                                         <li class="subsubmenu-item  ">
-                                            <a href="..\VInvestigación\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
+                                            <a href="..\VInvestigacion\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
                                         </li>
                                         <li class="subsubmenu-item  ">
                                             <a href="..\VAuditoria\"><span class="lbl">Auditoria</span></a>
@@ -359,7 +359,7 @@ if ($_SESSION["rols_id"] == 3) {
                                     <ul class="subsubmenu ">
 
                                         <li class="subsubmenu-item  ">
-                                            <a href="..\mtnHIdentificación\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
+                                            <a href="..\mtnHIdentificacion\"><span class="lbl">Identificación de peligros y valoración de riesgos.</span></a>
                                         </li>
                                         <li class="subsubmenu-item  ">
                                             <a href="..\mtnHMedidas\"><span class="lbl">Medidas de prevención y control.</span></a>
@@ -374,7 +374,7 @@ if ($_SESSION["rols_id"] == 3) {
                                     <a href="#" class='submenu-link'>Verificar</a>
                                     <ul class="subsubmenu ">
                                         <li class="subsubmenu-item  ">
-                                            <a href="..\mtnVInvestigación\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
+                                            <a href="..\mtnVInvestigacion\"><span class="lbl">Investigación de incidentes, accidentes de trabajo y enfermedades laborales.</span></a>
                                         </li>
                                         <li class="subsubmenu-item  ">
                                             <a href="..\mtnVAuditoria\"><span class="lbl">Auditoria</span></a>

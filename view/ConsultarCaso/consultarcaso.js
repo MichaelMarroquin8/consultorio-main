@@ -1,6 +1,5 @@
 var tabla;
 var usu_id = $("#user_idx").val();
-var emp_id = $("#emp´_idx").val();
 var rol_id = $("#rol_idx").val();
 var rols_id = $("#rols_idx").val();
 

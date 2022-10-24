@@ -312,6 +312,7 @@
                     $output["fech_crea"] = date("d/m/Y H:i:s", strtotime($row["fech_crea"]));
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_ape"] = $row["usu_ape"];
+                    $output["emp_r_social"] = $row["emp_r_social"];
                     $output["cat_nom"] = $row["cat_nom"];
                     $output["cats_nom"] = $row["cats_nom"];
                 }

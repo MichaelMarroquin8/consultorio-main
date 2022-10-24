@@ -195,10 +195,11 @@ function listardetalle(tick_id){
         data = JSON.parse(data);
         $('#lblestado').html(data.tick_estado);
         $('#lblnomusuario').html(data.usu_nom +' '+data.usu_ape);
+        $('#lblempresa').html(data.emp_r_social);
         $('#lblfechcrea').html(data.fech_crea);
         
         $('#lblnomidticket').html("Detalle Caso - "+data.tick_id);
-
+        
         $('#cat_nom').val(data.cat_nom);
         $('#cats_nom').val(data.cats_nom);
         $('#tick_titulo').val(data.tick_titulo);

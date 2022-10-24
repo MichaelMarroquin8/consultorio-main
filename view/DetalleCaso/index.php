@@ -23,7 +23,8 @@ if (isset($_SESSION["usu_id"])) {
             <div class="tbl-cell">
               <h3 id="lblnomidticket">Detalle Caso - 1</h3>
               <div id="lblestado"></div>
-              <span class="badge bg-info" id="lblnomusuario"></span>
+              <span class="badge bg-info" id="lblempresa"></span><br>
+              <span class="badge bg-success" id="lblnomusuario"></span>
               <span class="badge bg-secondary" id="lblfechcrea"></span>
             </div>
           </div>

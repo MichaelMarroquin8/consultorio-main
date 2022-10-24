@@ -2,7 +2,7 @@
 require_once("../../config/conexion.php");
 if (isset($_SESSION["usu_id"])) {
 ?>
-<?php
+	<?php
 	/////////////ENLISTAR LOS FICHEROS EXISTENTES///////////////////////////////////////////////
 	$listar = null;
 	$directorio = opendir("../../public/documents/documentos/PPerfilSociodemografico/");
@@ -17,6 +17,25 @@ if (isset($_SESSION["usu_id"])) {
 				$listar .= "<a class=' col-md-6 btn btn-primary block' href='../../public/documents/documentos/PPerfilSociodemografico/$elemento' target='_blank'> 
       $elemento</a>
       <br><br>";
+			}
+		}
+	}
+
+
+	/////////////ENLISTAR LOS FICHEROS EXISTENTES///////////////////////////////////////////////
+	$listarv = null;
+	$directoriov = opendir("../../public/videos/PPerfilSociodemografico/");
+
+	while ($elemento = readdir($directoriov)) {
+		if ($elemento != '.' && $elemento != '..') {
+			if (is_dir("../../public/documents/documentos/" . $elemento)) {
+				$listarv .= "<a class=' col-md-6 btn btn-primary block' href='../../public/videos/PPerfilSociodemografico/$elemento' target='_blank'> 
+		  $elemento/</a>
+		  <br><br>";
+			} else {
+				$listarv .= "<a class=' col-md-6 btn btn-primary block' href='../../public/videos/PPerfilSociodemografico/$elemento' target='_blank'> 
+		  $elemento</a>
+		  <br><br>";
 			}
 		}
 	}
@@ -61,9 +80,9 @@ if (isset($_SESSION["usu_id"])) {
 										<div class="card-content">
 											<img class="card-img-top img-fluid" src="../../public/images/samples/descarga.jpg" alt="Card image cap" style="height: 20rem">
 											<div class="card-body">
-												<h4 class="card-title">Formato de descarga Accion de mejoramiento</h4>
+												<h4 class="card-title">Formato: Perfil sociodemografico</h4>
 												<p class="card-text">
-													A travez de aqui podras descargar los documentos los cuales debes diligenciar para completar este modulo.
+												Espacio habilitado para acceder a documentos modelo y/o formatos que orientan frente a la implementaci&oacute;n y cumplimiento de este requisito.
 												</p>
 												<?php
 												echo $listar;
@@ -75,17 +94,15 @@ if (isset($_SESSION["usu_id"])) {
 								<div class="col-md-6 col-sm-12">
 									<div class="card">
 										<div class="card-content">
+											<img class="card-img-top img-fluid" src="../../public/images/samples/descarga.jpg" alt="Card image cap" style="height: 20rem">
 											<div class="card-body">
-												<h4 class="card-title mb-0">Guia para subida de documentos</h4>
-											</div>
-											<div class="embed-responsive embed-responsive-item embed-responsive-16by9 w-100">
-												<iframe src="https://www.youtube.com/embed/2b9txcAt4e0" style="width:100%" height="300" allowfullscreen></iframe>
-											</div>
-											<div class="card-body">
+												<h4 class="card-title">guia o video: Perfil sociodemografico</h4>
 												<p class="card-text">
-													Video de explicación para subida de documentos para cada empresa.
+												En este apartado podr&aacute; acceder al video o gu&iacute;a que orientan frente a la elaboraci&oacute;n de los documentos o formatos propuestos.
 												</p>
-												<a href="../../view/Mempresas/" class="btn btn-primary block">DESCARGAR</a>
+												<?php
+												echo $listarv;
+												?>
 											</div>
 										</div>
 									</div>

@@ -11,9 +11,11 @@ require_once("../models/Usuario.php");
 class Email extends PHPMailer{
 
     //variable que contiene el correo del destinatario
-    protected $gCorreo = 'michael_0902@hotmail.com';
-    protected $gContrasena = '08022002Mm--';
+    protected $gCorreo = 'm.stivenmarroquin@gmail.com';
+    protected $gContrasena = 'wlqvisuiryrybgor';
     //variable que contiene la contraseña del destinatario
+
+    
 
     public function ticket_abierto($tick_id){
         $ticket = new Ticket();
@@ -26,10 +28,10 @@ class Email extends PHPMailer{
             $categoria = $row["cat_nom"];
             $correo = $row["usu_correo"];
         }
-
         //IGual//
+        $this->SMTPDebug = 0;
         $this->IsSMTP();
-        $this->Host = 'smtp.office365.com';//Aqui el server
+        $this->Host = 'smtp.gmail.com';//Aqui el server
         $this->Port = 587;//Aqui el puerto
         $this->SMTPAuth = true;
         $this->Username = $this->gCorreo;
@@ -39,8 +41,11 @@ class Email extends PHPMailer{
         $this->FromName = $this->tu_nombre = "Caso Abierto ".$id;
         $this->CharSet = 'UTF8';
         $this->addAddress($correo);
+        $this->addAddress("darkeon8888@gmail.com");
         $this->WordWrap = 50;
         $this->IsHTML(true);
+
+        
         $this->Subject = "Caso abierto";
         //Igual//
         $cuerpo = file_get_contents('../public/email/NuevoTicket.html'); /* Ruta del template en formato HTML */
@@ -51,7 +56,7 @@ class Email extends PHPMailer{
         $cuerpo = str_replace("lblTitu", $titulo, $cuerpo);
         $cuerpo = str_replace("lblCate", $categoria, $cuerpo);
 
-        $this->Body = $cuerpo;
+        $this->Body = "envio de correo";
         $this->AltBody = strip_tags("Caso Abierto");
         return $this->Send();
     }

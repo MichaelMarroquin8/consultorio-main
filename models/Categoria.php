@@ -2,6 +2,7 @@
     class Categoria extends Conectar{
 
          /* TODO: Obtener todos los registros */
+         
          public function get_categoria(){
             $conectar= parent::conexion();
             parent::set_names();
@@ -11,7 +12,14 @@
             return $resultado=$sql->fetchAll();
         }
 
-        /* TODO:Insert Registro*/
+        /* TODO:Insert Registro*/        
+        /**
+         * insert_categoria
+         *
+         * @param  mixed $cat_nom
+         * @return void
+         */
+
         public function insert_categoria($cat_nom){
             $conectar= parent::conexion();
             parent::set_names();
@@ -22,7 +30,15 @@
             return $resultado=$sql->fetchAll();
         }
 
-        /* TODO:Update Registro*/
+        /* TODO:Update Registro*/        
+        /**
+         * update_categoria
+         *
+         * @param  mixed $cat_id
+         * @param  mixed $cat_nom
+         * @return void
+         */
+        
         public function update_categoria($cat_id,$cat_nom){
             $conectar= parent::conexion();
             parent::set_names();
@@ -37,7 +53,14 @@
             return $resultado=$sql->fetchAll();
         }
 
-        /* TODO:Delete Registro*/
+        /* TODO:Delete Registro*/        
+        /**
+         * delete_categoria
+         *
+         * @param  mixed $cat_id
+         * @return void
+         */
+        
         public function delete_categoria($cat_id){
             $conectar= parent::conexion();
             parent::set_names();
@@ -51,7 +74,14 @@
             return $resultado=$sql->fetchAll();
         }
 
-        /* TODO:Registro x id */
+        /* TODO:Registro x id */        
+        /**
+         * get_categoria_x_id
+         *
+         * @param  mixed $cat_id
+         * @return void
+         */
+        
         public function get_categoria_x_id($cat_id){
             $conectar= parent::conexion();
             parent::set_names();
