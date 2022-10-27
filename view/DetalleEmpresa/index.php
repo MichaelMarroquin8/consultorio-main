@@ -132,6 +132,10 @@ if (isset($_SESSION["usu_id"])) {
                             </fieldset>
                           </div>
                           
+                          <div class="col-lg-6">
+                            <button type="button" id="btneditar" class="btn btn-inline btn-primary">Editar</button>
+                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -186,8 +190,8 @@ if (isset($_SESSION["usu_id"])) {
       </div>
     </div>
     </div>
+    <?php require_once("modaleditar.php");?>
     <?php require_once("../MainJs/js.php"); ?>
-
     <script type="text/javascript" src="detalleempresa.js"></script>
   </body>
 

@@ -193,7 +193,7 @@
             return $resultado=$sql->fetchAll();
         }
 
-        //Modelo usuario actualizar contraseña con el MD5() usuario
+        //Modelo usuario actualizar contraseña de usuario
         public function update_usuario_pass($usu_id,$usu_pass){
             $conectar= parent::conexion();
             parent::set_names();

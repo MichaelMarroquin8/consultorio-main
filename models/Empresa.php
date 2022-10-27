@@ -28,12 +28,11 @@ class Empresa extends Conectar
     }
 
     //Modelo empresa para actualizar las empresas
-    public function update_empresa($emp_id, $usu_id, $emp_nit, $emp_r_social, $emp_n_trab, $emp_re_legal, $emp_acti_eco, $emp_nriesgo, $emp_arl, $emp_tel, $emp_dir)
+    public function update_empresa($emp_id, $emp_nit, $emp_r_social, $emp_n_trab, $emp_re_legal, $emp_acti_eco, $emp_nriesgo, $emp_arl, $emp_tel, $emp_dir, $emp_cnom, $emp_ccar, $emp_ctel, $emp_cemail)
     {
         $conectar = parent::conexion();
         parent::set_names();
         $sql = "UPDATE tm_empresa set
-                usu_id = ?,
                 emp_nit = ?,
                 emp_r_social = ?,
                 emp_n_trab = ?,
@@ -42,21 +41,28 @@ class Empresa extends Conectar
                 emp_nriesgo = ?,
                 emp_arl = ?,
                 emp_tel = ?,
-                emp_dir = ?
+                emp_dir = ?,
+                emp_cnom = ?,
+                emp_ccar = ?,
+                emp_ctel = ?,
+                emp_cemail = ?
                 WHERE
                 emp_id = ?";
         $sql = $conectar->prepare($sql);
-        $sql->bindValue(1, $usu_id);
-        $sql->bindValue(2, $emp_nit);
-        $sql->bindValue(3, $emp_r_social);
-        $sql->bindValue(4, $emp_n_trab);
-        $sql->bindValue(5, $emp_re_legal);
-        $sql->bindValue(6, $emp_acti_eco);
-        $sql->bindValue(7, $emp_nriesgo);
-        $sql->bindValue(8, $emp_arl);
-        $sql->bindValue(9, $emp_tel);
-        $sql->bindValue(10, $emp_dir);
-        $sql->bindValue(11, $emp_id);
+        $sql->bindValue(1, $emp_nit);
+        $sql->bindValue(2, $emp_r_social);
+        $sql->bindValue(3, $emp_n_trab);
+        $sql->bindValue(4, $emp_re_legal);
+        $sql->bindValue(5, $emp_acti_eco);
+        $sql->bindValue(6, $emp_nriesgo);
+        $sql->bindValue(7, $emp_arl);
+        $sql->bindValue(8, $emp_tel);
+        $sql->bindValue(9, $emp_dir);
+        $sql->bindValue(10, $emp_cnom);
+        $sql->bindValue(11, $emp_ccar);
+        $sql->bindValue(12, $emp_ctel);
+        $sql->bindValue(13, $emp_cemail);
+        $sql->bindValue(14, $emp_id);
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }

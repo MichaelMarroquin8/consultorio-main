@@ -11,13 +11,15 @@ require_once("../models/Documento.php");
 $documento = new Documento();
 
 switch ($_GET["op"]) {
-        /* Controller para crear Empresas */
+
+    /* Controller para crear Empresas */
     case "guardaryeditar":
-        if(empty($_POST["emp_id"])){     
             $empresa->insert_empresa($_POST["usu_id"],$_POST["emp_nit"],$_POST["emp_r_social"],$_POST["emp_n_trab"],$_POST["emp_re_legal"],$_POST["emp_acti_eco"],$_POST["emp_nriesgo"],$_POST["emp_arl"],$_POST["emp_tel"],$_POST["emp_dir"],$_POST["emp_cnom"],$_POST["emp_ccar"],$_POST["emp_ctel"],$_POST["emp_cemail"]);
-        }else{
-            $empresa->update_empresa($_POST["emp_id"],$_POST["usu_id"],$_POST["emp_nit"],$_POST["emp_r_social"],$_POST["emp_n_trab"],$_POST["emp_re_legal"],$_POST["emp_acti_eco"],$_POST["emp_nriesgo"],$_POST["emp_arl"],$_POST["emp_tel"],$_POST["emp_dir"]);
-        }
+    break;
+
+
+    case "editar":
+        $empresa->update_empresa($_POST["emp_id"],$_POST["emp_nit"],$_POST["emp_r_social"],$_POST["emp_n_trab"],$_POST["emp_re_legal"],$_POST["emp_acti_eco"],$_POST["emp_nriesgo"],$_POST["emp_arl"],$_POST["emp_tel"],$_POST["emp_dir"],$_POST["emp_cnom"],$_POST["emp_ccar"],$_POST["emp_ctel"],$_POST["emp_cemail"]);
     break;
 
     /* Controller para listar Empresas */
@@ -46,7 +48,6 @@ switch ($_GET["op"]) {
             $sub_array[] = $row["emp_dir"];
 
             $sub_array[] = '<button type="button" onClick="ver(' . $row["emp_id"] . ');"  id="' . $row["emp_id"] . '" class="btn btn-inline btn-primary btn-sm ladda-button"><i class="fa fa-eye"></i></button>';
-            $sub_array[] = '<button type="button" onClick="editar('.$row["emp_id"].');"  id="'.$row["emp_id"].'" class="btn btn-inline btn-warning btn-sm ladda-button"><i class="fa fa-edit"></i></button>';
             $sub_array[] = '<button type="button" onClick="eliminar(' . $row["emp_id"] . ');"  id="' . $row["emp_id"] . '" class="btn btn-inline btn-danger btn-sm ladda-button"><i class="fa fa-trash"></i></button>';
             $data[] = $sub_array;
         }

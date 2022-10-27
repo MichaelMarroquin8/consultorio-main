@@ -136,6 +136,64 @@ $(document).on("click", "#btnenviar", function () {
   }
 });
 
+
+$(document).on("click","#btneditar", function(emp_id){
+  var emp_id = getUrlParameter("ID");
+  
+  $('#empresa_edit')[0].reset();
+  $('#modaleditar').modal('show');
+  $('#mdltitulo').html('Editar Empresa');
+
+  $.post("../../controller/usuario.php?op=combo2",function(data, status){
+      $('#usu_id').html(data);
+  });
+
+  $.post("../../controller/empresa.php?op=mostrar", { emp_id : emp_id }, function (data) {
+      data = JSON.parse(data);
+
+      $("#eemp_nit").val(data.emp_nit);
+      $('#eemp_n_trab').val(data.emp_n_trab);
+      $('#eemp_r_social').val(data.emp_r_social);
+      $('#eemp_re_legal').val(data.emp_re_legal);
+      $('#eemp_acti_eco').val(data.emp_acti_eco);
+      $('#eemp_nriesgo').val(data.emp_nriesgo);
+      $("#eemp_arl").val(data.emp_arl);
+      $("#eemp_tel").val(data.emp_tel);
+      $('#eemp_dir').val(data.emp_dir);
+      
+      $("#eemp_cnom").val(data.emp_cnom);
+      $("#eemp_ccar").val(data.emp_ccar);
+      $("#eemp_ctel").val(data.emp_ctel);
+      $("#eemp_cemail").val(data.emp_cemail);
+  }); 
+
+});
+
+$(document).on("click","#btnactualizar", function(){
+
+  var emp_id = getUrlParameter("ID");
+
+  var eemp_nit = $("#eemp_nit").val();
+  var eemp_r_social = $('#eemp_r_social').val();
+  var eemp_n_trab = $('#eemp_n_trab').val();
+  var eemp_re_legal = $('#eemp_re_legal').val();
+  var eemp_acti_eco = $('#eemp_acti_eco').val();
+  var eemp_nriesgo = $('#eemp_nriesgo').val();
+  var eemp_arl = $("#eemp_arl").val();
+  var eemp_dir = $('#eemp_dir').val();
+  var eemp_tel = $("#eemp_tel").val();
+  var eemp_cnom = $("#eemp_cnom").val();
+  var eemp_ccar = $("#eemp_ccar").val();
+  var eemp_ctel = $("#eemp_ctel").val();
+  var eemp_cemail = $("#eemp_cemail").val();
+  
+  $.post("../../controller/empresa.php?op=editar", {emp_id:emp_id,emp_nit:eemp_nit,emp_r_social:eemp_r_social,emp_n_trab:eemp_n_trab,emp_re_legal:eemp_re_legal,emp_acti_eco:eemp_acti_eco,emp_nriesgo:eemp_nriesgo,emp_arl:eemp_arl,emp_tel:eemp_tel,emp_dir:eemp_dir,emp_cnom:eemp_cnom,emp_ccar:eemp_ccar,emp_ctel:eemp_ctel,emp_cemail:eemp_cemail}, function (data) {
+      swal.fire("Correcto!", "Actualizado Correctamente", "success");
+  }); 
+
+});
+
+
 function listardetalle(emp_id) {
   $.post(
     "../../controller/empresa.php?op=listardetalle",

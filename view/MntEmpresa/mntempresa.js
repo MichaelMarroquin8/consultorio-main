@@ -96,30 +96,6 @@ function ver(emp_id) {
     );
 }
 
-function editar(emp_id){
-    $('#mdltitulo').html('Editar Empresa');
-
-    $.post("../../controller/usuario.php?op=combo2",function(data, status){
-        $('#usu_id').html(data);
-    });
-
-    $.post("../../controller/empresa.php?op=mostrar", {emp_id : emp_id}, function (data) {
-        data = JSON.parse(data);
-        $('#usu_id').val(data.usu_id).trigger('change');
-        $('#emp_nit').val(data.emp_nit);
-        $('#emp_r_social').val(data.emp_r_social);
-        $('#emp_n_trab').val(data.emp_n_trab);
-        $('#emp_re_legal').val(data.emp_re_legal);
-        $('#emp_acti_eco').val(data.emp_acti_eco);
-        $('#emp_nriesgo').val(data.emp_nriesgo);
-        $('#emp_arl').val(data.emp_arl);
-        $('#emp_tel').val(data.emp_tel);
-        $('#emp_dir').val(data.emp_dir);
-    }); 
-
-    $('#modaleditar').modal('show');
-}
-
 function eliminar(emp_id){
     Swal.fire({
         title: "Consultorio Sena",
