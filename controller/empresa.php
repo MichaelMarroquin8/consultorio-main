@@ -7,7 +7,7 @@ $empresa = new Empresa();
 require_once("../models/Usuario.php");
 $usuario = new Usuario();
 
-require_once("../models/Documento.php");
+require_once("../models/Documentos.php");
 $documento = new Documento();
 
 switch ($_GET["op"]) {
