@@ -9,7 +9,7 @@
     require_once("../models/Empresa.php");
     $empresa = new Empresa();
 
-    require_once("../models/Documento.php");
+    require_once("../models/Documentos.php");
     $documento = new Documento();
 
     switch($_GET["op"]){

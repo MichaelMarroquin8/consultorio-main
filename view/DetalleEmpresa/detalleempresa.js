@@ -188,7 +188,11 @@ $(document).on("click","#btnactualizar", function(){
   var eemp_cemail = $("#eemp_cemail").val();
   
   $.post("../../controller/empresa.php?op=editar", {emp_id:emp_id,emp_nit:eemp_nit,emp_r_social:eemp_r_social,emp_n_trab:eemp_n_trab,emp_re_legal:eemp_re_legal,emp_acti_eco:eemp_acti_eco,emp_nriesgo:eemp_nriesgo,emp_arl:eemp_arl,emp_tel:eemp_tel,emp_dir:eemp_dir,emp_cnom:eemp_cnom,emp_ccar:eemp_ccar,emp_ctel:eemp_ctel,emp_cemail:eemp_cemail}, function (data) {
-      swal.fire("Correcto!", "Actualizado Correctamente", "success");
+      swal.fire({title: "Correcto", text: "Actualizado Correctamente!", icon: 
+      "success"}).then(function(){ 
+        location.reload();
+        }
+      );
   }); 
 
 });

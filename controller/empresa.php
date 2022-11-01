@@ -59,7 +59,7 @@ switch ($_GET["op"]) {
             "aaData" => $data
         );
         echo json_encode($results);
-        break;
+    break;
 
     case "listar_x_asig":
         $datos = $empresa->listar_empresa_x_asig($_POST["usu_id"]);

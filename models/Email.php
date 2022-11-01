@@ -1,9 +1,16 @@
 <?php
-/* librerias necesarias para que el proyecto pueda enviar emails */
-require('class.phpmailer.php');
-include("class.smtp.php");
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 /* llamada de las clases necesarias que se usaran en el envio del mail */
+
+
 require_once("../config/conexion.php");
 require_once("../models/Ticket.php");
 require_once("../models/Usuario.php");
@@ -11,14 +18,15 @@ require_once("../models/Usuario.php");
 class Email extends PHPMailer{
 
     //variable que contiene el correo del destinatario
-    protected $gCorreo = 'm.stivenmarroquin@gmail.com';
-    protected $gContrasena = 'wlqvisuiryrybgor';
+    protected $gCorreo = "cgts2018@senacgts.org";
+    protected $gContrasena = 'cgts2018';
     //variable que contiene la contraseña del destinatario
 
     
 
     public function ticket_abierto($tick_id){
         $ticket = new Ticket();
+        $Usuario = new Usuario();
         $datos = $ticket->listar_ticket_x_id($tick_id);
         foreach ($datos as $row){
             $id = $row["tick_id"];
@@ -27,25 +35,26 @@ class Email extends PHPMailer{
             $titulo = $row["tick_titulo"];
             $categoria = $row["cat_nom"];
             $correo = $row["usu_correo"];
+        }   
+
+        $correos = $Usuario->get_usuario_x_rol3();
+        foreach ($correos as $ruw) {
+            $correosinst=$ruw["usu_correo"];
+            $this->addAddress($correosinst);
         }
         //IGual//
-        $this->SMTPDebug = 0;
-        $this->IsSMTP();
-        $this->Host = 'smtp.gmail.com';//Aqui el server
-        $this->Port = 587;//Aqui el puerto
+        // $this->IsSMTP();
+        $this->SMTPDebug = 3;
+        $this->Host = "localhost";
         $this->SMTPAuth = true;
         $this->Username = $this->gCorreo;
         $this->Password = $this->gContrasena;
         $this->From = $this->gCorreo;
-        $this->SMTPSecure = 'tls';
         $this->FromName = $this->tu_nombre = "Caso Abierto ".$id;
-        $this->CharSet = 'UTF8';
         $this->addAddress($correo);
-        $this->addAddress("darkeon8888@gmail.com");
+        $this->CharSet = 'UTF-8';
         $this->WordWrap = 50;
         $this->IsHTML(true);
-
-        
         $this->Subject = "Caso abierto";
         //Igual//
         $cuerpo = file_get_contents('../public/email/NuevoTicket.html'); /* Ruta del template en formato HTML */
@@ -56,7 +65,7 @@ class Email extends PHPMailer{
         $cuerpo = str_replace("lblTitu", $titulo, $cuerpo);
         $cuerpo = str_replace("lblCate", $categoria, $cuerpo);
 
-        $this->Body = "envio de correo";
+        $this->Body = $cuerpo;
         $this->AltBody = strip_tags("Caso Abierto");
         return $this->Send();
     }
@@ -77,35 +86,33 @@ class Email extends PHPMailer{
 
             $apre = $Usuario->get_usuario_x_id($usuas);
             foreach ($apre as $ros){
-                $usuna=$ros["usu_nom"];
-                $usupa=$ros["usu_ape"];
+                $usunombre=$ros["usu_nom"];
+                $usuapellido=$ros["usu_ape"];
             }
         }
 
-
         //IGual//
-        $this->IsSMTP();
-        $this->Host = 'smtp.office365.com';//Aqui el server
-        $this->Port = 587;//Aqui el puerto
-        $this->SMTPAuth = true;
-        $this->Username = $this->gCorreo;
-        $this->Password = $this->gContrasena;
-        $this->From = $this->gCorreo;
-        $this->SMTPSecure = 'tls';
-        $this->FromName = $this->tu_nombre = "Caso Cerrado ".$id;
-        $this->CharSet = 'UTF8';
-        $this->addAddress($correo);
-        $this->WordWrap = 50;
-        $this->IsHTML(true);
-        $this->Subject = "Caso Cerrado";
+       // $this->IsSMTP();
+       $this->SMTPDebug = 3;
+       $this->Host = "localhost";
+       $this->SMTPAuth = true;
+       $this->Username = $this->gCorreo;
+       $this->Password = $this->gContrasena;
+       $this->From = $this->gCorreo;
+       $this->FromName = $this->tu_nombre = "Caso cerrado ".$id;
+       $this->addAddress($correo);
+       $this->CharSet = 'UTF-8';
+       $this->WordWrap = 50;
+       $this->IsHTML(true);
+       $this->Subject = "Caso cerrado";
         //Igual//
         $cuerpo = file_get_contents('../public/email/CerradoTicket.html'); /* Ruta del template en formato HTML */
         /* parametros del template a remplazar */
         $cuerpo = str_replace("xnroticket", $id, $cuerpo);
         $cuerpo = str_replace("lblNomUsu", $usun, $cuerpo);
         $cuerpo = str_replace("lblApeUsu", $usup, $cuerpo);
-        $cuerpo = str_replace("lblNomUsua", $usuna, $cuerpo);
-        $cuerpo = str_replace("lblApeUsua", $usupa, $cuerpo);
+        $cuerpo = str_replace("lblNomUsua", $usunombre, $cuerpo);
+        $cuerpo = str_replace("lblApeUsua", $usuapellido, $cuerpo);
         $cuerpo = str_replace("lblTitu", $titulo, $cuerpo);
         $cuerpo = str_replace("lblCate", $categoria, $cuerpo);
 
