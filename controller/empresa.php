@@ -193,6 +193,9 @@ switch ($_GET["op"]) {
                                                     echo 'Instructor';
                                                 }
                                             ?>
+                                            <?php
+                                             echo '<button type="button" onClick="eliminar(' . $row["empd_id"] . ');"  id="' . $row["empd_id"] . '" class="btn btn-inline btn-danger btn-sm ladda-button"><i class="fa fa-trash"></i></button>';
+                                            ?>
                                         </div>
                                     </div>
                                 </header>
