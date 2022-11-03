@@ -1,11 +1,15 @@
 <?php
+    /* TODO:Cadena de Conexion */
     require_once("../config/conexion.php");
+    /* TODO:Modelo Categoria */
     require_once("../models/Categoria.php");
     $categoria = new Categoria();
 
+    
+    /*TODO: opciones del controlador Categoria*/
     switch($_GET["op"]){
-         /* TODO: Guardar y editar, guardar si el campo cat_id esta vacio */
-         case "guardaryeditar":
+        /* TODO: Guardar y editar, guardar si el campo cat_id esta vacio */
+        case "guardaryeditar":
             /* TODO:Actualizar si el campo cat_id tiene informacion */
             if(empty($_POST["cat_id"])){       
                 $categoria->insert_categoria($_POST["cat_nom"]);     
@@ -42,7 +46,7 @@
 
         /* TODO: Mostrar en formato JSON segun cat_id */
         case "mostrar";
-            $datos=$categoria->get_categoria_x_id($_POST["cat_id"]);  
+            $datos=$categoria->get_categoria_x_id($_POST["cat_id"]);
             if(is_array($datos)==true and count($datos)>0){
                 foreach($datos as $row)
                 {
@@ -65,6 +69,6 @@
                 }
                 echo $html;
             }
-        break;
+            break;
     }
 ?>

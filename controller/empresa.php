@@ -96,14 +96,12 @@ switch ($_GET["op"]) {
             "aaData" => $data
         );
         echo json_encode($results);
-        break;
-
-        /* Controller para Eliminar Empresas */
+    break;
+   
     case "eliminar":
         $empresa->delete_empresa($_POST["emp_id"]);
-        break;
+    break;
 
-        /* Controller para actualizar contraseña */
     case "mostrar";
         $datos = $empresa->get_empresa_x_id($_POST["emp_id"]);
         if (is_array($datos) == true and count($datos) > 0) {
@@ -129,9 +127,8 @@ switch ($_GET["op"]) {
             }
             echo json_encode($output);
         }
-        break;
+    break;
 
-    
     case "insertdetalle":
         $datos = $empresa->insert_empresadetalle($_POST["emp_id"], $_POST["usu_id"],$_POST["tickd_descrip"]);
 
@@ -166,7 +163,7 @@ switch ($_GET["op"]) {
             }
         }
         echo json_encode($datos);
-        break;
+    break;
 
     case "listardetalle":
             $datos=$empresa->listar_empresadetalle_x_emp($_POST["emp_id"]);
@@ -251,7 +248,7 @@ switch ($_GET["op"]) {
                     }
                 ?>
             <?php
-        break;
+    break;
 
     case "combo":
             $datos = $empresa->get_empresas($_POST["usu_id"]);
@@ -264,5 +261,6 @@ switch ($_GET["op"]) {
                 }
                 echo $html;
             }
-        break;      
+    break; 
+         
 }

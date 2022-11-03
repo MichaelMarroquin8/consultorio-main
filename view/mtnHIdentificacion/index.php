@@ -7,7 +7,7 @@ if (isset($_SESSION["usu_id"])) {
 	/////////////ENLISTAR LOS FICHEROS EXISTENTES///////////////////////////////////////////////
 	$listar = null;
 	$directorio = opendir("../../public/documents/documentos/HIdentificacion/");
-	$borrarFor=null;
+	$borrarFor = null;
 
 	while ($elemento = readdir($directorio)) {
 		if ($elemento != '.' && $elemento != '..') {
@@ -40,40 +40,40 @@ if (isset($_SESSION["usu_id"])) {
 	}
 
 
-		/////////////ENLISTAR LOS FICHEROS EXISTENTES///////////////////////////////////////////////
-		$listarv = null;
-		$directoriov = opendir("../../public/videos/HIdentificacion/");
-	
-		while ($elemento = readdir($directoriov)) {
-			if ($elemento != '.' && $elemento != '..') {
-				if (is_dir("../../public/documents/documentos/" . $elemento)) {
-					$listarv .= "<a class=' col-md-6 btn btn-primary block' href='../../public/videos/HIdentificacion/$elemento' target='_blank'> 
+	/////////////ENLISTAR LOS FICHEROS EXISTENTES///////////////////////////////////////////////
+	$listarv = null;
+	$directoriov = opendir("../../public/videos/HIdentificacion/");
+
+	while ($elemento = readdir($directoriov)) {
+		if ($elemento != '.' && $elemento != '..') {
+			if (is_dir("../../public/documents/documentos/" . $elemento)) {
+				$listarv .= "<a class=' col-md-6 btn btn-primary block' href='../../public/videos/HIdentificacion/$elemento' target='_blank'> 
 		  $elemento/</a>
 		  <br><br>";
-				} else {
-					$listarv .= "<a class=' col-md-6 btn btn-primary block' href='../../public/videos/HIdentificacion/$elemento' target='_blank'> 
+			} else {
+				$listarv .= "<a class=' col-md-6 btn btn-primary block' href='../../public/videos/HIdentificacion/$elemento' target='_blank'> 
 		  $elemento</a>
 		  <br><br>";
-				}
 			}
 		}
-	
-		if ($_POST["subir"] == "Cargar video") {
-			$folder = "../../public/videos/HIdentificacion/";
-			move_uploaded_file($_FILES["formato"]["tmp_name"], "$folder" . $_FILES["formato"]["name"]);
-			echo "
+	}
+
+	if ($_POST["subir"] == "Cargar video") {
+		$folder = "../../public/videos/HIdentificacion/";
+		move_uploaded_file($_FILES["formato"]["tmp_name"], "$folder" . $_FILES["formato"]["name"]);
+		echo "
 		  <div class='alert alert-success'><p class='hidd' align=center>El video  " . $_FILES["formato"]["name"] . " se ha cargado correctamente.<a href='index.php' class='btn btn-default'>Cliqué aquí </a> para verificar.</div>";
-		}
-	
-		/////////////////////////////// BORRAR ARCHIVO ////////////////////////////////////
-	
-		$borrarForv = ($_POST['borrarForv']);
-		if (isset($_POST['borrarv'])) {
-			@unlink('../../public/videos/HIdentificacion/' . $borrarForv);
-			echo "
+	}
+
+	/////////////////////////////// BORRAR ARCHIVO ////////////////////////////////////
+
+	$borrarForv = ($_POST['borrarForv']);
+	if (isset($_POST['borrarv'])) {
+		@unlink('../../public/videos/HIdentificacion/' . $borrarForv);
+		echo "
 		  <div class='alert alert-danger'><p class='hidd' align=center>El archivo  " . $_FILES["formato"]["name"] . " ha sido eliminado correctamente. <a href='index.php' class='btn btn-default'>Cliqué aquí </a> para verificar.</div>";
-		}
-	
+	}
+
 	?>
 
 	<!DOCTYPE html>
@@ -148,7 +148,7 @@ if (isset($_SESSION["usu_id"])) {
 									<div class="card">
 										<div class="card-content">
 											<div class="card-body">
-											<h4 class="card-title">Formato guia de descarga Identificación de peligros y valoración de riesgos</h4>
+												<h4 class="card-title">Formato guia de descarga Identificación de peligros y valoración de riesgos</h4>
 												<form method="post" enctype="multipart/form-data" ">
 													<div class="" style=" margin-top:2%; padding:3%; border-radius:20px;">
 													<input class="form-control" type="file" name="formato" id="formato" style="margin-bottom:2%;">
@@ -168,6 +168,15 @@ if (isset($_SESSION["usu_id"])) {
 											<?php
 											echo $listarv;
 											?>
+											<div class="col-lg-12">
+												<fieldset class="form-group">
+													<label class="form-label semibold" for="sis_descrip">Links</label>
+													<textarea type="text" class="form-control" id="sis_descrip" name="sis_descrip" readonly></textarea>
+												</fieldset>
+											</div>
+											<div class="col-lg-6">
+												<button type="button" id="btneditar" class="btn btn-inline btn-primary">Editar</button>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -177,7 +186,9 @@ if (isset($_SESSION["usu_id"])) {
 				</div>
 			</div>
 		</div>
+		<?php require_once("modaleditar.php"); ?>
 		<?php require_once("../MainJs/js.php"); ?>
+		<script type="text/javascript" src="sistemasst.js"></script>
 	</body>
 
 	</html>

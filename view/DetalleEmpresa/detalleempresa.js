@@ -136,7 +136,6 @@ $(document).on("click", "#btnenviar", function () {
   }
 });
 
-
 $(document).on("click","#btneditar", function(emp_id){
   var emp_id = getUrlParameter("ID");
   
@@ -196,7 +195,6 @@ $(document).on("click","#btnactualizar", function(){
   }); 
 
 });
-
 
 function listardetalle(emp_id) {
   $.post(

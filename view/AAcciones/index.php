@@ -81,7 +81,7 @@ if (isset($_SESSION["usu_id"])) {
 											<div class="card-body">
 												<h4 class="card-title">Formato: Accion de mejoramiento</h4>
 												<p class="card-text">
-												Espacio habilitado para acceder a documentos modelo y/o formatos que orientan frente a la implementaci&oacute;n y cumplimiento de este requisito.
+													Espacio habilitado para acceder a documentos modelo y/o formatos que orientan frente a la implementaci&oacute;n y cumplimiento de este requisito.
 												</p>
 												<?php
 												echo $listar;
@@ -97,11 +97,17 @@ if (isset($_SESSION["usu_id"])) {
 											<div class="card-body">
 												<h4 class="card-title">guia o video: Accion de mejoramiento</h4>
 												<p class="card-text">
-												En este apartado podr&aacute; acceder al video o gu&iacute;a que orientan frente a la elaboraci&oacute;n de los documentos o formatos propuestos.
+													En este apartado podr&aacute; acceder al video o gu&iacute;a que orientan frente a la elaboraci&oacute;n de los documentos o formatos propuestos.
 												</p>
 												<?php
 												echo $listarv;
 												?>
+												<div class="col-lg-12">
+													<fieldset class="form-group">
+														<label class="form-label semibold" for="sis_descrip">Links</label>
+														<textarea type="text" class="form-control" id="sis_descrip" name="sis_descrip" readonly></textarea>
+													</fieldset>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -111,9 +117,8 @@ if (isset($_SESSION["usu_id"])) {
 					</div>
 				</div>
 			</div>
-
 			<?php require_once("../MainJs/js.php"); ?>
-
+			<script type="text/javascript" src="sistemasst.js"></script>
 	</body>
 
 	</html>

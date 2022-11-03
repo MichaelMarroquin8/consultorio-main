@@ -168,6 +168,15 @@ if (isset($_SESSION["usu_id"])) {
 											<?php
 											echo $listarv;
 											?>
+											<div class="col-lg-12">
+												<fieldset class="form-group">
+													<label class="form-label semibold" for="sis_descrip">Links</label>
+													<textarea type="text" class="form-control" id="sis_descrip" name="sis_descrip" readonly></textarea>
+												</fieldset>
+											</div>
+											<div class="col-lg-6">
+												<button type="button" id="btneditar" class="btn btn-inline btn-primary">Editar</button>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -177,10 +186,11 @@ if (isset($_SESSION["usu_id"])) {
 				</div>
 			</div>
 		</div>
+		<?php require_once("modaleditar.php");?>
 		<?php require_once("../MainJs/js.php"); ?>
+		<script type="text/javascript" src="sistemasst.js"></script>
 	</body>
-
-	</html>
+</html>
 <?php
 } else {
 	header("Location:" . Conectar::ruta() . "index.php");
